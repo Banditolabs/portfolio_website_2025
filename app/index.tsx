@@ -1,13 +1,22 @@
 import { useNavigation, Link, Stack } from "expo-router";
 import * as NavigationBar from "expo-navigation-bar";
-import { Text, View, Button, Image, StyleSheet } from "react-native";
+import {
+  Text,
+  View,
+  Button,
+  Image,
+  StyleSheet,
+  ImageBackground,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useEffect, useState } from "react";
 import { FlatList, ScrollView } from "react-native-gesture-handler";
-import { Collapsible } from "@/app-example/components/Collapsible";
+import { Collapsible } from "@/components/Collapsible";
 import { ThemedView } from "@/components/ThemedView";
 import { ThemedText } from "@/components/ThemedText";
 import { ProjectFrame } from "@/components/ProjectFrame";
+import { ThemedEmailForm } from "@/components/ThemedEmailForm";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function Index() {
   const [count, setCount] = useState(0);
@@ -83,10 +92,12 @@ export default function Index() {
   };
 
   return (
-    <ScrollView style={styles.screen}>
+    <ScrollView>
       <SafeAreaView>
         <Stack.Screen
           options={{
+            headerShown: true,
+            headerTransparent: true,
             headerTitle: (props) => false,
             headerRight: () => (
               <Link style={styles.blogHeaderOption} href={{ pathname: "blog" }}>
@@ -94,33 +105,62 @@ export default function Index() {
               </Link>
             ),
           }}
-          style={styles.screen}
         />
-        <ThemedView style={[styles.centering, styles.introduction]}>
-          <ThemedText>Joshua Goss</ThemedText>
-          <ThemedText>Software Engineer | FullStack</ThemedText>
-          {/* <Text>{placeholder}</Text> */}
+        <ThemedView style={[sectionStyles.centering, styles.introduction]}>
+          <ImageBackground
+            source={require("@/assets/images/dark-background.jpg")}
+            resizeMode="cover"
+            style={{
+              height: "100%",
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <View style={sectionStyles.centering}>
+              <ThemedText type={"hero"} style={[sectionStyles.margin]}>
+                Joshua
+              </ThemedText>
+              <ThemedText type={"hero"} style={[sectionStyles.margin]}>
+                Goss
+              </ThemedText>
+            </View>
+            <ThemedText type={"subtitle"} style={[sectionStyles.margin]}>
+              Software Engineer | FullStack
+            </ThemedText>
+          </ImageBackground>
         </ThemedView>
-        <ThemedView style={[styles.centering, styles.experience]}>
-          <ThemedText>Experience</ThemedText>
+        <ThemedView style={[sectionStyles.centering, styles.experience]}>
           <ThemedView>
-            <Collapsible title={"Software Engineer-Kajabi"}>
-              <ThemedText>Software Engineer Kajabi</ThemedText>
-            </Collapsible>
-          </ThemedView>
-          <ThemedView>
-            <Collapsible title={"Technical Support Lead Kajabi"}>
-              <ThemedText>Technical Support Lead Kajabi</ThemedText>
-            </Collapsible>
-          </ThemedView>
-          <ThemedView>
-            <Collapsible title={"Technical Support Agent Kajabi"}>
-              <ThemedText>Technical Support Agent Kajabi</ThemedText>
-            </Collapsible>
+            <ThemedText type="title" style={[sectionStyles.margin]}>
+              Experience
+            </ThemedText>
+            <ThemedView>
+              <Collapsible title={"Software Engineer-Kajabi"}>
+                <ThemedText type="default">Software Engineer Kajabi</ThemedText>
+              </Collapsible>
+            </ThemedView>
+            <ThemedView>
+              <Collapsible title={"Technical Support Lead Kajabi"}>
+                <ThemedText type="default">
+                  Technical Support Lead Kajabi
+                </ThemedText>
+              </Collapsible>
+            </ThemedView>
+            <ThemedView>
+              <Collapsible title={"Technical Support Agent Kajabi"}>
+                <ThemedText type="default">
+                  Technical Support Agent Kajabi
+                </ThemedText>
+              </Collapsible>
+            </ThemedView>
           </ThemedView>
         </ThemedView>
-        <ThemedView style={[styles.centering, styles.skills]}>
-          <ThemedText> Skills </ThemedText>
+        <ThemedView style={[sectionStyles.centering, styles.skills]}>
+          <ThemedText type="title" style={[sectionStyles.margin]}>
+            {" "}
+            Skills{" "}
+          </ThemedText>
           <FlatList
             data={skillData}
             renderItem={Item}
@@ -128,24 +168,39 @@ export default function Index() {
             keyExtractor={(item) => item.alt}
           />
         </ThemedView>
-        <ThemedView style={[styles.centering, styles.work]}>
-          <ThemedText>Work</ThemedText>
+        <ThemedView style={[sectionStyles.centering, styles.work]}>
+          <ThemedText type="title" style={[sectionStyles.margin]}>
+            Work
+          </ThemedText>
           <View>
             <ProjectFrame
               text={"Testing"}
               image_source={"@/assets/images/rails.svg"}
             />
           </View>
-          <View></View>
         </ThemedView>
-        <ThemedView style={[styles.centering, styles.contact_me]}>
-          <ThemedText>Contact Me</ThemedText>
+        <ThemedView style={[sectionStyles.centering, styles.contact_me]}>
+          <ThemedText type="title" style={[sectionStyles.margin]}>
+            Contact Me
+          </ThemedText>
+          <ThemedEmailForm />
         </ThemedView>
       </SafeAreaView>
     </ScrollView>
   );
 }
 
+const sectionStyles = StyleSheet.create({
+  centering: {
+    justifyContent: "center",
+    alignItems: "center",
+    verticalAlign: "middle",
+  },
+  margin: {
+    margin: 20,
+  },
+  titleContainer: {},
+});
 const styles = StyleSheet.create({
   screen: {
     overflow: "scroll",
@@ -158,12 +213,8 @@ const styles = StyleSheet.create({
   blogHeaderOption: {
     marginRight: 20,
   },
-  centering: {
-    justifyContent: "felx-start",
-    alignItems: "center",
-  },
   introduction: {
-    height: "100%",
+    height: "85%",
   },
   experience: {
     height: "50%",
@@ -172,7 +223,7 @@ const styles = StyleSheet.create({
     height: "50%",
   },
   work: {
-    height: "100%",
+    height: "50%",
   },
   contact_me: {
     height: "50%",
@@ -182,10 +233,4 @@ const styles = StyleSheet.create({
     maxWidth: "33%",
     padding: 30,
   },
-
-  // section: {
-  //   flex: 1,
-  //   justifyContent: "felx-start",
-  //   alignItems: "center",
-  // },
 });
