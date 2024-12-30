@@ -14,11 +14,20 @@ export function Experience() {
           <ThemedText type={"defaultSemiBold"} style={{ marginBottom: 10 }}>
             Software Engineer
           </ThemedText>
+          <ThemedText type={"subtext"} style={{ marginBottom: 10 }}>
+            Promoted to Software Engineer after demonstrating technical
+            proficiency and problem-solving skills in customer support and
+            cross-department collaboration.
+          </ThemedText>
+          <ThemedText type={"subtext"} style={{ marginBottom: 10 }}>
+            Built and maintained critical payment architecture and features,
+            supporting Kajabi's global payment collection.
+          </ThemedText>
           <ThemedText type={"subtext"}>
-            Built and maintained critical payment achitecture and features for
-            Kajabi's payment collection domain. Streamlined project planning by
-            defining development processes, breaking down features into
-            actionable tasks, and providing accurate time estimates.
+            Streamlined project workflows by defining development processes,
+            breaking down features into actionable tasks, and delivering
+            accurate time estimates, ensuring timely delivery of complex
+            initiatives.
           </ThemedText>
           <View>
             <ul
@@ -71,11 +80,19 @@ export function Experience() {
           <ThemedText type={"defaultSemiBold"} style={{ marginBottom: 10 }}>
             Technical Support Lead
           </ThemedText>
+          <ThemedText type={"subtext"} style={{ marginBottom: 10 }}>
+            Advanced to Technical Support Lead due to a deep understanding of
+            Kajabi's platform and leadership skills.
+          </ThemedText>
+          <ThemedText type={"subtext"} style={{ marginBottom: 10 }}>
+            Acted as a key liaison between support and engineering, driving
+            resolution for high-impact bugs by documenting, prioritizing, and
+            replicating issues reported by customers.
+          </ThemedText>
           <ThemedText type={"subtext"}>
-            Used technical knowledge of Kajabi's application to support as
-            cornerstone member of Kajabi's 200 plus person support structure.
-            Served as liasion to the engineering team to help prioritize,
-            document and replicate bugs reported through the support org.
+            Mentored peers and improved team effectiveness through collaboration
+            and knowledge-sharing, laying the groundwork for a transition to
+            engineering.
           </ThemedText>
           <View>
             <ul
@@ -118,10 +135,17 @@ export function Experience() {
           <ThemedText type={"defaultSemiBold"} style={{ marginBottom: 10 }}>
             Technical Support Agent
           </ThemedText>
+          <ThemedText type={"subtext"} style={{ marginBottom: 10 }}>
+            Started at Kajabi as a Technical Support Specialist, developing a
+            strong foundation in customer service and platform expertise.
+          </ThemedText>
+          <ThemedText type={"subtext"} style={{ marginBottom: 10 }}>
+            Earned recognition for quickly mastering the product and becoming a
+            resource for colleagues with complex questions.
+          </ThemedText>
           <ThemedText type={"subtext"}>
-            Provided top quality customer support to Kajabi customers. Worked to
-            understand Kajabi's app on a deep level and become a point person
-            for peers with questions and in need of collaboration.
+            Collaborated with engineering to understand technical workflows,
+            setting the stage for a seamless transition into a technical role.
           </ThemedText>
         </View>
       </View>

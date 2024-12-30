@@ -5,6 +5,9 @@ import { about } from "@/constants/About";
 export function About() {
   return (
     <View style={[styles.aboutContainer]}>
+      <ThemedText type={"subtitle"} style={{ marginBottom: 10 }}>
+        About Me
+      </ThemedText>
       <ThemedText style={[styles.aboutItem]}>{about.p1}</ThemedText>
       <ThemedText style={[styles.aboutItem, { color: "#94a3b8" }]}>
         {about.p2}
