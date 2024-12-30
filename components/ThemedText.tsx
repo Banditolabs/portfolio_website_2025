@@ -4,12 +4,7 @@ import {
   StyleSheet,
   useWindowDimensions,
 } from "react-native";
-import { useFonts } from "expo-font";
-import { useEffect } from "react";
-import * as SplashScreen from "expo-splash-screen";
 import { useThemeColor } from "@/hooks/useThemeColor";
-
-SplashScreen.preventAutoHideAsync();
 
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
@@ -33,20 +28,6 @@ export function ThemedText({
   ...rest
 }: ThemedTextProps) {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, "text");
-
-  const [loaded, error] = useFonts({
-    "Stint-Ultra-Expanded": require("@/assets/fonts/StintUltraExpanded-Regular.ttf"),
-    "Pontano-Sans": require("@/assets/fonts/PontanoSans-VariableFont_wght.ttf"),
-  });
-  useEffect(() => {
-    if (loaded || error) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded, error]);
-
-  if (!loaded && !error) {
-    return null;
-  }
 
   return (
     <Text
