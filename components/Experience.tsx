@@ -24,8 +24,12 @@ export function Experience() {
             <ul
               style={{
                 display: "flex",
+                flexDirection: "row",
+                flexWrap: "wrap",
                 listStyleType: "none",
                 paddingLeft: 0,
+                gap: 8,
+                marginTop: 10,
               }}
             >
               <li>
@@ -72,8 +76,12 @@ export function Experience() {
             <ul
               style={{
                 display: "flex",
+                flexDirection: "row",
+                flexWrap: "wrap",
                 listStyleType: "none",
                 paddingLeft: 0,
+                gap: 8,
+                marginTop: 10,
               }}
             >
               <li>
@@ -134,9 +142,13 @@ const styles = StyleSheet.create({
   resumeContent: {
     width: "60%",
   },
-  skillsContainer: {},
+  skillsContainer: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+  },
   skillsItem: {
-    marginHorizontal: 5,
+    marginHorizontal: 0,
     backgroundColor: "rgba(240, 240, 240, 0.2)",
     paddingHorizontal: 10,
     paddingVertical: 2,

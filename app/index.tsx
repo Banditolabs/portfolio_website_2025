@@ -1,13 +1,4 @@
-import { useNavigation, Link, Stack } from "expo-router";
-import * as NavigationBar from "expo-navigation-bar";
-import {
-  Text,
-  View,
-  Button,
-  Image,
-  StyleSheet,
-  ImageBackground,
-} from "react-native";
+import { View, StyleSheet, useWindowDimensions } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView } from "react-native-gesture-handler";
 import { ThemedView } from "@/components/ThemedView";
@@ -17,19 +8,30 @@ import { NameAndTitle } from "@/components/NameAndTitle";
 import { Icons } from "@/components/Icons";
 
 export default function Index() {
+  const { width } = useWindowDimensions();
+  const isMobile = width < 768;
+
   return (
     <ScrollView>
       <SafeAreaView>
         <ThemedView style={[{ alignItems: "center", height: "100%" }]}>
           <View style={[styles.bodyContainer, { maxWidth: 1280 }]}>
-            <View style={[styles.bodyColumn]}>
-              <ThemedView style={[styles.nameColumn]}>
+            <View
+              style={[styles.bodyColumn, { width: isMobile ? "100%" : "50%" }]}
+            >
+              <ThemedView
+                style={[styles.nameColumn, isMobile && styles.nameColumnMobile]}
+              >
                 <NameAndTitle />
                 <Icons />
               </ThemedView>
             </View>
-            <View style={[styles.bodyColumn]}>
-              <View style={[styles.infoColumn]}>
+            <View
+              style={[styles.bodyColumn, { width: isMobile ? "100%" : "50%" }]}
+            >
+              <View
+                style={[styles.infoColumn, isMobile && styles.infoColumnMobile]}
+              >
                 <About />
                 <Experience />
               </View>
@@ -62,5 +64,13 @@ const styles = StyleSheet.create({
     paddingLeft: "20%",
     top: 20,
     position: "sticky",
+  },
+  nameColumnMobile: {
+    paddingLeft: 0,
+  },
+  infoColumnMobile: {
+    marginRight: 0,
+    marginTop: 20,
+    paddingHorizontal: 20,
   },
 });
