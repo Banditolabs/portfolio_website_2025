@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   },
   infoColumn: {
     marginRight: 30,
-    marginTop: 20,
+    marginTop: "15%",
   },
   nameColumn: {
     flexDirection: "row",

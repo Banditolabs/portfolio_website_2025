@@ -64,10 +64,9 @@ export function Experience() {
           </ThemedText>
           <ThemedText type={"subtext"}>
             Used technical knowledge of Kajabi's application to support as
-            cornerstone member of Kajabi's 200 plus person support structure. In
-            addition I served as liasion to the engineering team to help
-            prioritize, document and replicate bugs reported through the support
-            org.
+            cornerstone member of Kajabi's 200 plus person support structure.
+            Served as liasion to the engineering team to help prioritize,
+            document and replicate bugs reported through the support org.
           </ThemedText>
           <View>
             <ul

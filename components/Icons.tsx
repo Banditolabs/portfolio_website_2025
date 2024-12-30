@@ -15,21 +15,21 @@ export function Icons({ lightColor, darkColor }: IconProps) {
 
   return (
     <View style={[styles.socialsContainer]}>
-      <a href={"https://www.linkedin.com/in/joshuagoss/"}>
+      <a href={"https://www.linkedin.com/in/joshuagoss/"} target="_blank">
         <FontAwesomeIcon
           color={color}
           icon={faLinkedin}
           style={{ height: 24, width: 24 }}
         />
       </a>
-      <a href={"https://github.com/Banditolabs"}>
+      <a href={"https://github.com/Banditolabs"} target="_blank">
         <FontAwesomeIcon
           color={color}
           icon={faGithub}
           style={{ height: 24, width: 24 }}
         />
       </a>
-      <a href={"https://x.com/GossuaJ"}>
+      <a href={"https://x.com/GossuaJ"} target="_blank">
         <FontAwesomeIcon
           color={color}
           icon={faXTwitter}
@@ -46,5 +46,7 @@ const styles = StyleSheet.create({
     marginBottom: 40,
     display: "flex",
     flexDirection: "row",
+    gap: 10,
   },
+  icon: {},
 });
