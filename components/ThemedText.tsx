@@ -4,8 +4,12 @@ import {
   StyleSheet,
   useWindowDimensions,
 } from "react-native";
-
+import { useFonts } from "expo-font";
+import { useEffect } from "react";
+import * as SplashScreen from "expo-splash-screen";
 import { useThemeColor } from "@/hooks/useThemeColor";
+
+SplashScreen.preventAutoHideAsync();
 
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
@@ -29,6 +33,20 @@ export function ThemedText({
   ...rest
 }: ThemedTextProps) {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, "text");
+
+  const [loaded, error] = useFonts({
+    "Stint-Ultra-Expanded": require("@/assets/fonts/StintUltraExpanded-Regular.ttf"),
+    "Pontano-Sans": require("@/assets/fonts/PontanoSans-VariableFont_wght.ttf"),
+  });
+  useEffect(() => {
+    if (loaded || error) {
+      SplashScreen.hideAsync();
+    }
+  }, [loaded, error]);
+
+  if (!loaded && !error) {
+    return null;
+  }
 
   return (
     <Text
@@ -54,15 +72,18 @@ const styles = StyleSheet.create({
   default: {
     fontSize: 16,
     lineHeight: 24,
+    fontFamily: "Pontano-Sans",
   },
   defaultSemiBold: {
     fontSize: 16,
     lineHeight: 24,
     fontWeight: "600",
+    fontFamily: "Stint-Ultra-Expanded",
   },
   title: {
     fontSize: 34,
     fontWeight: "bold",
+    fontFamily: "Stint-Ultra-Expanded",
   },
   hero: {
     fontSize: 40,
@@ -70,6 +91,7 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 20,
     fontWeight: "bold",
+    fontFamily: "Stint-Ultra-Expanded",
   },
   link: {
     lineHeight: 30,
@@ -80,10 +102,12 @@ const styles = StyleSheet.create({
     lineHeight: 21,
     fontSize: 14,
     color: "#94a3b8",
+    fontFamily: "Pontano-Sans",
   },
   skill: {
     lineHeight: 20,
     fontSize: 12,
     color: "#fff",
+    fontFamily: "Pontano-Sans",
   },
 });
