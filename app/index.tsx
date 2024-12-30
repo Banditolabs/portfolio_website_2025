@@ -9,6 +9,7 @@ import {
   ImageBackground,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { about } from "@/constants/About";
 import { useEffect, useState } from "react";
 import { FlatList, ScrollView } from "react-native-gesture-handler";
 import { Collapsible } from "@/components/Collapsible";
@@ -17,6 +18,10 @@ import { ThemedText } from "@/components/ThemedText";
 import { ProjectFrame } from "@/components/ProjectFrame";
 import { ThemedEmailForm } from "@/components/ThemedEmailForm";
 import { LinearGradient } from "expo-linear-gradient";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons/faLinkedin";
+import { faGithub } from "@fortawesome/free-brands-svg-icons/faGithub";
+import { faXTwitter } from "@fortawesome/free-brands-svg-icons/faXTwitter";
 
 export default function Index() {
   const [count, setCount] = useState(0);
@@ -94,19 +99,225 @@ export default function Index() {
   return (
     <ScrollView>
       <SafeAreaView>
-        <Stack.Screen
-          options={{
-            headerShown: true,
-            headerTransparent: true,
-            headerTitle: (props) => false,
-            headerRight: () => (
-              <Link style={styles.blogHeaderOption} href={{ pathname: "blog" }}>
-                <Button title="Blog" />
-              </Link>
-            ),
-          }}
-        />
-        <ThemedView style={[sectionStyles.centering, styles.introduction]}>
+        {/* <Link style={styles.blogHeaderOption} href={{ pathname: "blog" }}>
+              <Button title="Blog" />
+          </Link> */}
+        <ThemedView style={[{ alignItems: "center" }]}>
+          <View style={[styles.bodyContainer, { maxWidth: 1280 }]}>
+            <View style={[styles.bodyColumn]}>
+              <Text> Name and Socials </Text>
+              <ThemedView style={[styles.nameColumn]}>
+                <View style={[sectionContainers.nameContainer]}>
+                  <ThemedText type="title" style={[sectionContainers.nameItem]}>
+                    Joshua Goss
+                  </ThemedText>
+                  <ThemedText
+                    type="subtitle"
+                    style={[sectionContainers.nameItem]}
+                  >
+                    Software Engineer | Fullstack
+                  </ThemedText>
+                  <ThemedText
+                    type="default"
+                    style={[sectionContainers.nameItem]}
+                  >
+                    I love meaningful outcomes from the code I write.
+                  </ThemedText>
+                </View>
+                <View style={[sectionContainers.socialsContainer]}>
+                  <View>
+                    <FontAwesomeIcon
+                      icon={faLinkedin}
+                      style={{ height: 24, width: 24 }}
+                    />
+                    <FontAwesomeIcon
+                      icon={faGithub}
+                      style={{ height: 24, width: 24 }}
+                    />
+                    <FontAwesomeIcon
+                      icon={faXTwitter}
+                      style={{ height: 24, width: 24 }}
+                    />
+                  </View>
+                </View>
+              </ThemedView>
+            </View>
+            <View style={[styles.bodyColumn]}>
+              <Text> Info </Text>
+              {/* ABOUT */}
+              <View style={[styles.infoColumn]}>
+                <View style={[sectionContainers.aboutContainer]}>
+                  <ThemedText style={[sectionContainers.aboutItem]}>
+                    {about.p1}
+                  </ThemedText>
+                  <ThemedText
+                    style={[sectionContainers.aboutItem, { color: "#94a3b8" }]}
+                  >
+                    {about.p2}
+                  </ThemedText>
+                  <ThemedText style={[sectionContainers.aboutItem]}>
+                    {about.p3}
+                  </ThemedText>
+                  <ThemedText
+                    style={[sectionContainers.aboutItem, { color: "#94a3b8" }]}
+                  >
+                    {about.p4}
+                  </ThemedText>
+                </View>
+                {/* EXPERIENCE */}
+                <View style={sectionContainers.experienceContainer}>
+                  <View style={[sectionContainers.experienceItem]}>
+                    <View style={[sectionContainers.resumeDates]}>
+                      <ThemedText style={{ fontSize: 12 }}>
+                        November 2022 - December 2024
+                      </ThemedText>
+                    </View>
+                    <View style={[sectionContainers.resumeContent]}>
+                      <ThemedText
+                        type={"defaultSemiBold"}
+                        style={{ marginBottom: 10 }}
+                      >
+                        Software Engineer
+                      </ThemedText>
+                      <ThemedText type={"subtext"}>
+                        Built and maintained critical payment achitecture and
+                        features for Kajabi's payment collection domain.
+                        Streamlined project planning by defining development
+                        processes, breaking down features into actionable tasks,
+                        and providing accurate time estimates.
+                      </ThemedText>
+                      <View>
+                        <ul
+                          style={{
+                            display: "flex",
+                            listStyleType: "none",
+                            paddingLeft: 0,
+                          }}
+                        >
+                          <li>
+                            <ThemedText
+                              style={sectionContainers.skillsItem}
+                              type="skill"
+                            >
+                              Ruby
+                            </ThemedText>
+                          </li>
+                          <li>
+                            <ThemedText
+                              style={sectionContainers.skillsItem}
+                              type="skill"
+                            >
+                              TypeScript
+                            </ThemedText>
+                          </li>
+                          <li>
+                            <ThemedText
+                              style={sectionContainers.skillsItem}
+                              type="skill"
+                            >
+                              React
+                            </ThemedText>
+                          </li>
+                          <li>
+                            <ThemedText
+                              style={sectionContainers.skillsItem}
+                              type="skill"
+                            >
+                              MySQL
+                            </ThemedText>
+                          </li>
+                        </ul>
+                      </View>
+                    </View>
+                  </View>
+                  <View style={[sectionContainers.experienceItem]}>
+                    <View style={[sectionContainers.resumeDates]}>
+                      <ThemedText style={{ fontSize: 12 }}>
+                        October 2020 - November 2022
+                      </ThemedText>
+                    </View>
+                    <View style={[sectionContainers.resumeContent]}>
+                      <ThemedText
+                        type={"defaultSemiBold"}
+                        style={{ marginBottom: 10 }}
+                      >
+                        Technical Support Lead
+                      </ThemedText>
+                      <ThemedText type={"subtext"}>
+                        Used technical knowledge of Kajabi's application to
+                        support as cornerstone member of Kajabi's 200 plus
+                        person support structure. In addition I served as
+                        liasion to the engineering team to help prioritize,
+                        document and replicate bugs reported through the support
+                        org.
+                      </ThemedText>
+                      <View>
+                        <ul
+                          style={{
+                            display: "flex",
+                            listStyleType: "none",
+                            paddingLeft: 0,
+                          }}
+                        >
+                          <li>
+                            <ThemedText
+                              style={sectionContainers.skillsItem}
+                              type="skill"
+                            >
+                              HTML
+                            </ThemedText>
+                          </li>
+                          <li>
+                            <ThemedText
+                              style={sectionContainers.skillsItem}
+                              type="skill"
+                            >
+                              CSS
+                            </ThemedText>
+                          </li>
+                          <li>
+                            <ThemedText
+                              style={sectionContainers.skillsItem}
+                              type="skill"
+                            >
+                              JavaScript
+                            </ThemedText>
+                          </li>
+                        </ul>
+                      </View>
+                    </View>
+                  </View>
+                  <View style={[sectionContainers.experienceItem]}>
+                    <View style={[sectionContainers.resumeDates]}>
+                      <ThemedText style={{ fontSize: 12 }}>
+                        June 2019 - Octrober 2020
+                      </ThemedText>
+                    </View>
+                    <View style={[sectionContainers.resumeContent]}>
+                      <ThemedText
+                        type={"defaultSemiBold"}
+                        style={{ marginBottom: 10 }}
+                      >
+                        Technical Support Agent
+                      </ThemedText>
+                      <ThemedText type={"subtext"}>
+                        Provided top quality customer support to Kajabi
+                        customers. Worked to understand Kajabi's app on a deep
+                        level and become a point person for peers with questions
+                        and in need of collaboration.
+                      </ThemedText>
+                    </View>
+                  </View>
+                  {/* <Link href={{ href: "@/assets/documents/Resume.pdf" }}>
+                    <ThemedText>Full Resume</ThemedText>
+                  </Link> */}
+                </View>
+                <View></View>
+              </View>
+            </View>
+          </View>
+        </ThemedView>
+        {/* <ThemedView style={[sectionStyles.centering, styles.introduction]}>
           <ImageBackground
             source={require("@/assets/images/dark-background.jpg")}
             resizeMode="cover"
@@ -121,7 +332,7 @@ export default function Index() {
               <ThemedText type={"hero"} style={[sectionStyles.margin]}>
                 Joshua
               </ThemedText>
-              <ThemedText type={"hero"} style={[sectionStyles.margin]}>
+              <ThemedText type={"hero"} style={[]}>
                 Goss
               </ThemedText>
             </View>
@@ -130,16 +341,18 @@ export default function Index() {
             </ThemedText>
           </ImageBackground>
         </ThemedView>
-        <ThemedView style={[sectionStyles.centering, styles.experience]}>
-          <ThemedView>
+        <ThemedView style={[styles.experience]}>
+          <View style={[sectionStyles.titleContainer]}>
             <ThemedText type="title" style={[sectionStyles.margin]}>
               Experience
             </ThemedText>
-            <ThemedView>
+          </View>
+          <ThemedView style={[]}>
+            <View style={[]}>
               <Collapsible title={"Software Engineer-Kajabi"}>
                 <ThemedText type="default">Software Engineer Kajabi</ThemedText>
               </Collapsible>
-            </ThemedView>
+            </View>
             <ThemedView>
               <Collapsible title={"Technical Support Lead Kajabi"}>
                 <ThemedText type="default">
@@ -154,7 +367,7 @@ export default function Index() {
                 </ThemedText>
               </Collapsible>
             </ThemedView>
-          </ThemedView>
+          </View>
         </ThemedView>
         <ThemedView style={[sectionStyles.centering, styles.skills]}>
           <ThemedText type="title" style={[sectionStyles.margin]}>
@@ -184,53 +397,121 @@ export default function Index() {
             Contact Me
           </ThemedText>
           <ThemedEmailForm />
-        </ThemedView>
+        </ThemedView> */}
       </SafeAreaView>
     </ScrollView>
   );
 }
 
-const sectionStyles = StyleSheet.create({
-  centering: {
-    justifyContent: "center",
-    alignItems: "center",
-    verticalAlign: "middle",
-  },
-  margin: {
-    margin: 20,
-  },
-  titleContainer: {},
-});
 const styles = StyleSheet.create({
-  screen: {
-    overflow: "scroll",
-    backgroundColor: "#1f1B24",
-  },
-  image: {
-    width: 50,
-    height: 50,
-  },
-  blogHeaderOption: {
-    marginRight: 20,
-  },
-  introduction: {
-    height: "85%",
-  },
-  experience: {
-    height: "50%",
-  },
-  skills: {
-    height: "50%",
-  },
-  work: {
-    height: "50%",
-  },
-  contact_me: {
-    height: "50%",
-  },
-  item: {
+  bodyContainer: {
     flex: 1,
-    maxWidth: "33%",
-    padding: 30,
+    flexDirection: "row",
+    flexWrap: "wrap",
+  },
+  bodyColumn: {
+    width: "50%",
+  },
+  infoColumn: {
+    marginRight: 30,
+  },
+  nameColumn: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    margin: 20,
+    paddingLeft: "20%",
   },
 });
+
+const sectionContainers = StyleSheet.create({
+  nameContainer: {
+    width: "100%",
+    marginBottom: 40,
+  },
+  nameItem: {
+    marginBottom: 10,
+    display: "flex",
+    justifyContent: "flex-start",
+  },
+  socialsContainer: {
+    width: "50%",
+    marginBottom: 40,
+  },
+  aboutContainer: {
+    marginBottom: "20%",
+  },
+  aboutItem: {
+    marginBottom: 10,
+  },
+  experienceContainer: {
+    marginBottom: "20%",
+  },
+  experienceItem: {
+    display: "flex",
+    flexDirection: "row",
+    marginBottom: 20,
+  },
+  resumeDates: {
+    width: "50%",
+  },
+  resumeContent: {
+    width: "50%",
+  },
+  skillsContainer: {},
+  skillsItem: {
+    marginHorizontal: 5,
+    backgroundColor: "rgba(240, 240, 240, 0.2)",
+    paddingHorizontal: 10,
+    paddingVertical: 2,
+    borderRadius: 20,
+  },
+});
+
+// const sectionStyles = StyleSheet.create({
+//   centering: {
+//     justifyContent: "center",
+//     alignItems: "center",
+//     verticalAlign: "middle",
+//   },
+//   margin: {
+//     margin: 20,
+//   },
+//   titleContainer: {
+//     justifyContent: "center",
+//     width: "50%",
+//   },
+// });
+// const styles = StyleSheet.create({
+//   screen: {
+//     overflow: "scroll",
+//     backgroundColor: "#1f1B24",
+//   },
+//   image: {
+//     width: 50,
+//     height: 50,
+//   },
+//   blogHeaderOption: {
+//     marginRight: 20,
+//   },
+//   introduction: {
+//     height: "85%",
+//   },
+//   experience: {
+//     height: "50%",
+//     alignItems: "center",
+//   },
+//   skills: {
+//     height: "50%",
+//   },
+//   work: {
+//     height: "50%",
+//   },
+//   contact_me: {
+//     height: "50%",
+//   },
+//   item: {
+//     flex: 1,
+//     maxWidth: "33%",
+//     padding: 30,
+//   },
+// });

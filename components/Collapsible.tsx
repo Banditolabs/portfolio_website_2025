@@ -1,5 +1,12 @@
 import { PropsWithChildren, useState } from "react";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
+import {
+  StyleSheet,
+  TouchableOpacity,
+  View,
+  Animated,
+  Easing,
+  useAnimatedValue,
+} from "react-native";
 
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
@@ -21,7 +28,7 @@ export function Collapsible({
         onPress={() => setIsOpen((value) => !value)}
         activeOpacity={0.8}
       >
-        <View>
+        <View style={[styles.container]}>
           <IconSymbol
             name="chevron.right"
             size={18}
@@ -39,11 +46,16 @@ export function Collapsible({
 }
 
 const styles = StyleSheet.create({
+  container: {
+    width: "100%",
+    backgroundColor: "#490C86DE",
+    padding: 20,
+    borderRadius: 10,
+  },
   heading: {
     flexDirection: "row",
     alignItems: "center",
     gap: 6,
-    backgroundColor: "#03DAC5",
     padding: 2,
     margin: 2,
   },

@@ -10,10 +10,16 @@ import { useThemeColor } from "@/hooks/useThemeColor";
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
   darkColor?: string;
-  type?: "default" | "title" | "hero" | "defaultSemiBold" | "subtitle" | "link";
+  type?:
+    | "default"
+    | "title"
+    | "hero"
+    | "defaultSemiBold"
+    | "subtitle"
+    | "link"
+    | "subtext"
+    | "skill";
 };
-
-const { height, width, scale, fontScale } = useWindowDimensions();
 
 export function ThemedText({
   style,
@@ -35,6 +41,8 @@ export function ThemedText({
         type === "defaultSemiBold" ? styles.defaultSemiBold : undefined,
         type === "subtitle" ? styles.subtitle : undefined,
         type === "link" ? styles.link : undefined,
+        type === "subtext" ? styles.subtext : undefined,
+        type === "skill" ? styles.skill : undefined,
         style,
       ]}
       {...rest}
@@ -53,17 +61,29 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
   title: {
-    fontSize: width / 35,
+    fontSize: 34,
+    fontWeight: "bold",
   },
   hero: {
-    fontSize: width / 13,
+    fontSize: 40,
   },
   subtitle: {
-    fontSize: width / 50,
+    fontSize: 20,
+    fontWeight: "bold",
   },
   link: {
     lineHeight: 30,
     fontSize: 16,
     color: "#0a7ea4",
+  },
+  subtext: {
+    lineHeight: 21,
+    fontSize: 14,
+    color: "#94a3b8",
+  },
+  skill: {
+    lineHeight: 20,
+    fontSize: 12,
+    color: "#fff",
   },
 });
