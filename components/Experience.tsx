@@ -6,7 +6,7 @@ export function Experience() {
     <View style={styles.experienceContainer}>
       <View style={[styles.experienceItem]}>
         <View style={[styles.resumeDates]}>
-          <ThemedText style={{ fontSize: 12 }}>
+          <ThemedText style={{ fontSize: 12, marginRight: 10 }}>
             November 2022 - December 2024
           </ThemedText>
         </View>
@@ -52,13 +52,18 @@ export function Experience() {
                   MySQL
                 </ThemedText>
               </li>
+              <li>
+                <ThemedText style={styles.skillsItem} type="skill">
+                  Rails
+                </ThemedText>
+              </li>
             </ul>
           </View>
         </View>
       </View>
       <View style={[styles.experienceItem]}>
         <View style={[styles.resumeDates]}>
-          <ThemedText style={{ fontSize: 12 }}>
+          <ThemedText style={{ fontSize: 12, marginRight: 10 }}>
             October 2020 - November 2022
           </ThemedText>
         </View>
@@ -105,7 +110,7 @@ export function Experience() {
       </View>
       <View style={[styles.experienceItem]}>
         <View style={[styles.resumeDates]}>
-          <ThemedText style={{ fontSize: 12 }}>
+          <ThemedText style={{ fontSize: 12, marginRight: 10 }}>
             June 2019 - Octrober 2020
           </ThemedText>
         </View>

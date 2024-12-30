@@ -1,4 +1,5 @@
 import { View, StyleSheet, useWindowDimensions } from "react-native";
+import { useState, useEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView } from "react-native-gesture-handler";
 import { ThemedView } from "@/components/ThemedView";
@@ -9,7 +10,11 @@ import { Icons } from "@/components/Icons";
 
 export default function Index() {
   const { width } = useWindowDimensions();
-  const isMobile = width < 768;
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(width < 768);
+  }, [width]);
 
   return (
     <ScrollView>
@@ -62,7 +67,7 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     margin: 20,
     paddingLeft: "20%",
-    top: 20,
+    top: 50,
     position: "sticky",
   },
   nameColumnMobile: {
