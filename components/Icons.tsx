@@ -50,9 +50,9 @@ export function Icons({ lightColor, darkColor }: IconProps) {
 
 const styles = StyleSheet.create({
   socialsContainer: {
-    width: "50%",
-    marginBottom: 40,
+    width: "100%",
     display: "flex",
+    justifyContent: "center",
     flexDirection: "row",
     height: 40,
     gap: 10,

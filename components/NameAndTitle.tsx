@@ -10,7 +10,7 @@ export function NameAndTitle() {
       <ThemedText type="subtitle" style={[styles.nameItem]}>
         Software Engineer | Fullstack
       </ThemedText>
-      <ThemedText type="default" style={[styles.nameItem]}>
+      <ThemedText type="default" style={[]}>
         I love meaningful outcomes from the code I write.
       </ThemedText>
     </View>
@@ -20,7 +20,7 @@ export function NameAndTitle() {
 const styles = StyleSheet.create({
   nameContainer: {
     width: "100%",
-    marginBottom: 40,
+    marginBottom: 20,
   },
   nameItem: {
     marginBottom: 10,

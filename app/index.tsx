@@ -7,14 +7,11 @@ import { Experience } from "@/components/Experience";
 import { About } from "@/components/About";
 import { NameAndTitle } from "@/components/NameAndTitle";
 import { Icons } from "@/components/Icons";
+import ProfileImage from "@/components/ProfileImage";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 export default function Index() {
-  const { width } = useWindowDimensions();
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    setIsMobile(width < 768);
-  }, [width]);
+  const isMobile = useIsMobile();
 
   return (
     <ScrollView>
@@ -25,10 +22,24 @@ export default function Index() {
               style={[styles.bodyColumn, { width: isMobile ? "100%" : "50%" }]}
             >
               <ThemedView
-                style={[styles.nameColumn, isMobile && styles.nameColumnMobile]}
+                style={[
+                  styles.nameColumn,
+                  isMobile && styles.nameColumnMobile,
+                  isMobile && { justifyContent: "center" },
+                ]}
               >
                 <NameAndTitle />
-                <Icons />
+                <View style={[{ flexDirection: "column", gap: 20 }]}>
+                  <View
+                    style={[
+                      { flexDirection: "column", gap: 20 },
+                      isMobile && { justifyContent: "center" },
+                    ]}
+                  >
+                    <ProfileImage />
+                  </View>
+                  <Icons />
+                </View>
               </ThemedView>
             </View>
             <View
