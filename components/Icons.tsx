@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons/faLinkedin";
 import { faGithub } from "@fortawesome/free-brands-svg-icons/faGithub";
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons/faXTwitter";
+import { faInbox } from "@fortawesome/free-solid-svg-icons";
 import { useThemeColor } from "@/hooks/useThemeColor";
 
 export type IconProps = {
@@ -36,6 +37,13 @@ export function Icons({ lightColor, darkColor }: IconProps) {
           style={{ height: 24, width: 24 }}
         />
       </a>
+      <a href={"mailto:Joshuagosst@gmail.com"}>
+        <FontAwesomeIcon
+          color={color}
+          icon={faInbox}
+          style={{ height: 24, width: 24 }}
+        />
+      </a>
     </View>
   );
 }
@@ -46,6 +54,7 @@ const styles = StyleSheet.create({
     marginBottom: 40,
     display: "flex",
     flexDirection: "row",
+    height: 40,
     gap: 10,
   },
   icon: {},
