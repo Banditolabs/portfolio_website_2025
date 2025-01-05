@@ -3,31 +3,34 @@ import { Text, View, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView } from "react-native-gesture-handler";
 import { ThemedView } from "@/components/ThemedView";
+import { ThemedText } from "@/components/ThemedText";
+import { getAllPosts, BlogPost } from "@/utils/mdx";
+import { useState, useEffect } from "react";
+import { BlogPostCard } from "@/components/BlogPostCard";
 
 export default function Blog() {
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+
+  useEffect(() => {
+    async function loadPosts() {
+      const allPosts = await getAllPosts();
+      setPosts(allPosts);
+    }
+    loadPosts();
+  }, []);
+  console.log(posts);
   return (
-    <ScrollView>
-      <SafeAreaView>
-        <ThemedView style={[{ alignItems: "center", height: "100%" }]}>
-          <View style={[styles.container, { maxWidth: 1280 }]}>
-            <Text style={styles.heading}>Blog Posts</Text>
-            {/* Add blog post entries here */}
-            <View style={styles.blogPost}>
-              <Link href={{ pathname: "/" }}>
-                <Text> Home </Text>
-              </Link>
-              <View>
-                <Text style={styles.title}>My First Blog Post</Text>
-                <Text style={styles.date}>January 1, 2024</Text>
-                <Text style={styles.excerpt}>
-                  This is a preview of my first blog post...
-                </Text>
-              </View>
-            </View>
-          </View>
-        </ThemedView>
-      </SafeAreaView>
-    </ScrollView>
+    <ThemedView id="blogView" style={[{ alignItems: "center", flex: 1 }]}>
+      <View style={[styles.container, { maxWidth: 1280 }]}>
+        <View>
+          <ThemedText style={styles.heading}>Blog Posts</ThemedText>
+        </View>
+        {/* Add blog post entries here */}
+        {posts.map((post) => (
+          <BlogPostCard key={post.slug} post={post} />
+        ))}
+      </View>
+    </ThemedView>
   );
 }
 
