@@ -13,7 +13,7 @@ export interface BlogPost {
 
 export async function getAllPosts(): Promise<BlogPost[]> {
   try {
-  const mdFiles = require.context("@/app/content/blog", false, /\.md$/)
+  const mdFiles = require.context('../content/blog', false)
   console.log('Found MDX files:', mdFiles.keys()); // Check if files are found
 
   const filePaths = mdFiles.keys().map(key => mdFiles(key));
