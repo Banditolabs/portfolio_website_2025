@@ -1,30 +1,50 @@
-import { View, StyleSheet } from "react-native";
-import { ThemedView } from "@/components/ThemedView";
-import { ThemedText } from "@/components/ThemedText";
-import { getAllPosts, BlogPost } from "@/utils/mdx";
+import { View, StyleSheet, Pressable } from "react-native";
+import { ThemedView } from "@/src/components/ThemedView";
+import { ThemedText } from "@/src/components/ThemedText";
 import { useState, useEffect } from "react";
-import { BlogPostCard } from "@/components/BlogPostCard";
+import { BlogPostCard } from "@/src/components/BlogPostCard";
+import { loadMarkdownFile } from "@/src/utils/markdownLoader";
+import { blogPosts } from "@/src/data/blogPosts";
+import type { LoadedBlogPost } from "@/src/types/blog";
+import { router } from "expo-router";
 
 export default function Blog() {
-  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [loadedPosts, setLoadedPosts] = useState<LoadedBlogPost[]>([]);
 
   useEffect(() => {
-    async function loadPosts() {
-      const allPosts = await getAllPosts();
-      setPosts(allPosts);
-    }
+    const loadPosts = async () => {
+      const loadedPosts = await Promise.all(
+        blogPosts.map(async (post) => {
+          const content = await loadMarkdownFile(post.contentPath);
+          return {
+            id: post.id,
+            title: post.title,
+            date: post.date,
+            description: post.description,
+            slug: post.slug,
+            tags: post.tags,
+            content: content || "",
+          };
+        })
+      );
+      setLoadedPosts(loadedPosts);
+    };
     loadPosts();
   }, []);
-  console.log(posts);
+
   return (
     <ThemedView id="blogView" style={[{ alignItems: "center", flex: 1 }]}>
       <View style={[styles.container, { maxWidth: 1280 }]}>
         <View>
           <ThemedText style={styles.heading}>Blog Posts</ThemedText>
         </View>
-        {/* Add blog post entries here */}
-        {posts.map((post) => (
-          <BlogPostCard key={post.slug} post={post} />
+        {loadedPosts.map((post) => (
+          <Pressable
+            key={post.id}
+            onPress={() => router.push(`/blog/${post.slug}`)}
+          >
+            <BlogPostCard post={post} />
+          </Pressable>
         ))}
       </View>
     </ThemedView>
@@ -41,24 +61,5 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: "bold",
     marginBottom: 20,
-  },
-  blogPost: {
-    borderBottomWidth: 1,
-    borderBottomColor: "#eee",
-    paddingVertical: 20,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "600",
-    marginBottom: 8,
-  },
-  date: {
-    fontSize: 14,
-    color: "#666",
-    marginBottom: 8,
-  },
-  excerpt: {
-    fontSize: 16,
-    lineHeight: 24,
   },
 });

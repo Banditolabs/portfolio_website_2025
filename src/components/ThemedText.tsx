@@ -4,7 +4,7 @@ import {
   StyleSheet,
   useWindowDimensions,
 } from "react-native";
-import { useThemeColor } from "@/hooks/useThemeColor";
+import { useThemeColor } from "@/src/hooks/useThemeColor";
 
 export type ThemedTextProps = TextProps & {
   lightColor?: string;

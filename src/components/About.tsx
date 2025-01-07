@@ -1,5 +1,5 @@
 import { View, StyleSheet } from "react-native";
-import { ThemedText } from "@/components/ThemedText";
+import { ThemedText } from "@/src/components/ThemedText";
 import { about } from "@/constants/About";
 
 export function About() {

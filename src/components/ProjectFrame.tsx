@@ -1,6 +1,6 @@
 import { View, Image, StyleSheet } from "react-native";
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView";
+import { ThemedText } from "@/src/components/ThemedText";
+import { ThemedView } from "@/src/components/ThemedView";
 import { useThemeColor } from "@/hooks/useThemeColor";
 
 export type ProjectFrameProps = {

@@ -2,13 +2,13 @@ import { View, StyleSheet, useWindowDimensions } from "react-native";
 import { useState, useEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView } from "react-native-gesture-handler";
-import { ThemedView } from "@/components/ThemedView";
-import { Experience } from "@/components/Experience";
-import { About } from "@/components/About";
-import { NameAndTitle } from "@/components/NameAndTitle";
-import { Icons } from "@/components/Icons";
-import ProfileImage from "@/components/ProfileImage";
-import { useIsMobile } from "@/hooks/useIsMobile";
+import { ThemedView } from "@/src/components/ThemedView";
+import { Experience } from "@/src/components/Experience";
+import { About } from "@/src/components/About";
+import { NameAndTitle } from "@/src/components/NameAndTitle";
+import { Icons } from "@/src/components/Icons";
+import ProfileImage from "@/src/components/ProfileImage";
+import { useIsMobile } from "@/src/hooks/useIsMobile";
 
 export default function Index() {
   const isMobile = useIsMobile();

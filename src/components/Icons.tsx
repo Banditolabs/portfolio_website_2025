@@ -4,7 +4,7 @@ import { faLinkedin } from "@fortawesome/free-brands-svg-icons/faLinkedin";
 import { faGithub } from "@fortawesome/free-brands-svg-icons/faGithub";
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons/faXTwitter";
 import { faInbox } from "@fortawesome/free-solid-svg-icons";
-import { useThemeColor } from "@/hooks/useThemeColor";
+import { useThemeColor } from "@/src/hooks/useThemeColor";
 
 export type IconProps = {
   lightColor?: string;

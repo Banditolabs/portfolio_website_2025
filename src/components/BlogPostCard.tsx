@@ -1,26 +1,17 @@
-import { Link } from "expo-router";
 import { StyleSheet, View } from "react-native";
-import { ThemedText } from "@/components/ThemedText";
-import type { BlogPost } from "@/utils/mdx";
+import { ThemedText } from "@/src/components/ThemedText";
+import type { LoadedBlogPost } from "@/src/types/blog";
 
 interface BlogPostCardProps {
-  post: BlogPost;
+  post: LoadedBlogPost;
 }
 
 export function BlogPostCard({ post }: BlogPostCardProps) {
   return (
     <View style={styles.card}>
-      <Link
-        href={{
-          pathname: "/blog",
-          params: { slug: post.slug },
-        }}
-        style={styles.link}
-      >
-        <ThemedText style={styles.title}>{post.title}</ThemedText>
-        <ThemedText style={styles.date}>{post.date}</ThemedText>
-        <ThemedText style={styles.excerpt}>{post.description}</ThemedText>
-      </Link>
+      <ThemedText style={styles.title}>{post.title}</ThemedText>
+      <ThemedText style={styles.date}>{post.date}</ThemedText>
+      <ThemedText style={styles.excerpt}>{post.description}</ThemedText>
     </View>
   );
 }
