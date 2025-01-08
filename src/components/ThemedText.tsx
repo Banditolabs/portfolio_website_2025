@@ -68,6 +68,8 @@ const styles = StyleSheet.create({
   },
   hero: {
     fontSize: 40,
+    fontWeight: "bold",
+    fontFamily: "Stint-Ultra-Expanded",
   },
   subtitle: {
     fontSize: 20,

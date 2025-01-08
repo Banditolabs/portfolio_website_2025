@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView } from "react-native-gesture-handler";
 import { ThemedView } from "@/src/components/ThemedView";
-import { Experience } from "@/src/components/Experience";
-import { About } from "@/src/components/About";
-import { NameAndTitle } from "@/src/components/NameAndTitle";
-import { Icons } from "@/src/components/Icons";
-import ProfileImage from "@/src/components/ProfileImage";
+import { Experience } from "@/src/components/homepage/Experience";
+import { About } from "@/src/components/homepage/About";
+import { NameAndTitle } from "@/src/components/homepage/NameAndTitle";
+import { Icons } from "@/src/components/homepage/Icons";
+import ProfileImage from "@/src/components/homepage/ProfileImage";
 import { useIsMobile } from "@/src/hooks/useIsMobile";
 
 export default function Index() {

@@ -1,4 +1,4 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Image } from "react-native";
 import { ThemedText } from "@/src/components/ThemedText";
 import type { LoadedBlogPost } from "@/src/types/blog";
 
@@ -9,8 +9,13 @@ interface BlogPostCardProps {
 export function BlogPostCard({ post }: BlogPostCardProps) {
   return (
     <View style={styles.card}>
-      <ThemedText style={styles.title}>{post.title}</ThemedText>
-      <ThemedText style={styles.date}>{post.date}</ThemedText>
+      <ThemedText style={styles.title} type="title">
+        {post.title}
+      </ThemedText>
+      <ThemedText style={styles.date} type="subtext">
+        {post.date}
+      </ThemedText>
+      <Image source={post.image} style={styles.image} />
       <ThemedText style={styles.excerpt}>{post.description}</ThemedText>
     </View>
   );
@@ -19,8 +24,8 @@ export function BlogPostCard({ post }: BlogPostCardProps) {
 const styles = StyleSheet.create({
   card: {
     padding: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: "#eee",
+    borderBottomWidth: 0.5,
+    borderColor: "#ECEDEE",
     width: "100%",
   },
   link: {
@@ -39,5 +44,9 @@ const styles = StyleSheet.create({
   excerpt: {
     fontSize: 16,
     lineHeight: 24,
+  },
+  image: {
+    width: "100%",
+    height: 200,
   },
 });

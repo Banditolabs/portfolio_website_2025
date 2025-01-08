@@ -25,6 +25,7 @@ export default function BlogPostPage() {
         description: postData.description,
         slug: postData.slug,
         tags: postData.tags,
+        image: postData.image,
         content: content || "",
       });
     };
