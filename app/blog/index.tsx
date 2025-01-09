@@ -13,7 +13,7 @@ import { BlogHeroCard } from "@/src/components/blog/BlogHeroCard";
 import { loadMarkdownFile } from "@/src/utils/markdownLoader";
 import { blogPosts } from "@/src/data/blogPosts";
 import type { LoadedBlogPost } from "@/src/types/blog";
-import { router } from "expo-router";
+import { Link, router } from "expo-router";
 import { useIsMobile } from "@/src/hooks/useIsMobile";
 import { MobileHeroCard } from "@/src/components/blog/MobileHeroCard";
 
@@ -56,23 +56,30 @@ export default function Blog() {
       style={[styles.container, { alignItems: "center" }]}
     >
       <ScrollView style={[styles.scrollView]}>
-        <View style={{ alignItems: "center", minHeight: "100%" }}>
+        <View style={{ alignItems: "center" }}>
           <View
             style={[
               styles.bodyContainer,
               { maxWidth: 1280, padding: isMobile ? 20 : 0 },
             ]}
           >
-            <View>
+            <View style={{ marginHorizontal: isMobile ? 0 : 20 }}>
               <ThemedText
                 type="hero"
                 style={[styles.heading, isMobile && styles.headingMobile]}
               >
-                Blog Posts
+                [ Coder's Log ]
               </ThemedText>
-              <ThemedText type="subtitle" style={styles.subheading}>
-                Thank you for visiting my blog
-              </ThemedText>
+              <View style={styles.headerContainer}>
+                <ThemedText type="subtitle" style={styles.subheading}>
+                  Thank you for visiting my blog
+                </ThemedText>
+                <View style={styles.headerOptions}>
+                  <Link href="/">
+                    <ThemedText>Home</ThemedText>
+                  </Link>
+                </View>
+              </View>
             </View>
             <View
               style={[
@@ -86,7 +93,10 @@ export default function Blog() {
               <View
                 style={[
                   styles.newestPost,
-                  { width: isMobile ? "100%" : "70%" },
+                  {
+                    width: isMobile ? "100%" : "70%",
+                    height: isMobile ? 500 : 800,
+                  },
                 ]}
               >
                 {isMobile
@@ -94,15 +104,19 @@ export default function Blog() {
                   : newestPost && <BlogHeroCard post={newestPost} />}
               </View>
               <View style={[styles.recentBlogPosts]}>
-                {loadedPosts.length > 0 && (
+                {loadedPosts.length > 1 && (
                   <ThemedText
                     type="subtitle"
-                    style={styles.recentBlogPostsTitle}
+                    style={
+                      isMobile
+                        ? styles.mobileRecentBlogPostsTitle
+                        : styles.recentBlogPostsTitle
+                    }
                   >
                     Recent Blog Posts
                   </ThemedText>
                 )}
-                {loadedPosts.slice(0, 3).map((post) => (
+                {loadedPosts.slice(1, 3).map((post) => (
                   <Pressable
                     key={post.id}
                     onPress={() => router.push(`/blog/${post.slug}`)}
@@ -134,6 +148,17 @@ const styles = StyleSheet.create({
     height: "100%",
     paddingTop: 50,
   },
+  headerContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    borderBottomWidth: 1,
+    borderBottomColor: "#ccc",
+  },
+  headerOptions: {
+    flexDirection: "row",
+    gap: 20,
+  },
   bodyContainer: {
     flex: 1,
     flexDirection: "column",
@@ -146,14 +171,11 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   headingMobile: {
-    fontSize: 24,
     marginBottom: 10,
   },
   subheading: {
-    marginBottom: 20,
-    borderBottomWidth: 1,
     borderBottomColor: "#ccc",
-    paddingBottom: 20,
+    marginBottom: 10,
   },
   blogHero: {
     marginBottom: 20,
@@ -163,12 +185,14 @@ const styles = StyleSheet.create({
   newestPost: {
     flexDirection: "column",
     display: "flex",
-    marginTop: 20,
+    marginTop: 40,
     marginRight: 20,
-    height: 800,
   },
   recentBlogPostsTitle: {
     marginBottom: 20,
+  },
+  mobileRecentBlogPostsTitle: {
+    marginTop: 30,
   },
   recentBlogPosts: {
     flexDirection: "column",

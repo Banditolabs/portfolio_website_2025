@@ -13,6 +13,7 @@ export type ThemedTextProps = TextProps & {
     | "default"
     | "title"
     | "hero"
+    | "heroBlog"
     | "defaultSemiBold"
     | "subtitle"
     | "link"
@@ -37,6 +38,7 @@ export function ThemedText({
         type === "default" ? styles.default : undefined,
         type === "title" ? styles.title : undefined,
         type === "hero" ? styles.hero : undefined,
+        type === "heroBlog" ? styles.heroBlog : undefined,
         type === "defaultSemiBold" ? styles.defaultSemiBold : undefined,
         type === "subtitle" ? styles.subtitle : undefined,
         type === "link" ? styles.link : undefined,
@@ -92,5 +94,9 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: "#fff",
     fontFamily: "Pontano-Sans",
+  },
+  heroBlog: {
+    fontSize: 75,
+    fontFamily: "Ultra-Regular",
   },
 });

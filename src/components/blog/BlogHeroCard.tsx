@@ -9,22 +9,21 @@ interface BlogHeroCardProps {
 
 export function BlogHeroCard({ post }: BlogHeroCardProps) {
   return (
-    <View style={styles.card}>
-      <Pressable
-        key={post.id}
-        onPress={() => router.push(`/blog/${post.slug}`)}
-        style={{ flex: 1 }}
-      >
+    <Pressable key={post.id} onPress={() => router.push(`/blog/${post.slug}`)}>
+      <View style={styles.card}>
         <ImageBackground source={post.image} style={styles.image}>
-          <ThemedText style={styles.title} type="hero">
+          <ThemedText style={styles.title} type="heroBlog">
             {post.title}
           </ThemedText>
           <ThemedText style={styles.date} type="subtext">
             {post.date}
           </ThemedText>
+          <ThemedText style={styles.description} type="subtitle">
+            {post.description}
+          </ThemedText>
         </ImageBackground>
-      </Pressable>
-    </View>
+      </View>
+    </Pressable>
   );
 }
 
@@ -35,13 +34,23 @@ const styles = StyleSheet.create({
     height: 400,
   },
   title: {
-    fontSize: 24,
-    fontWeight: "600",
-    marginBottom: 20,
+    position: "absolute",
+    bottom: -50,
+    right: -10,
+    textAlign: "right",
+    marginBottom: 8,
   },
   date: {
+    position: "absolute",
+    top: -25,
     fontSize: 14,
-    color: "#666",
+    color: "#fff",
+    marginBottom: 8,
+  },
+  description: {
+    position: "absolute",
+    bottom: -70,
+    color: "#fff",
     marginBottom: 8,
   },
   image: {

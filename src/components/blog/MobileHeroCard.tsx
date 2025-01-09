@@ -17,11 +17,14 @@ export function MobileHeroCard({ post }: MobileHeroCardProps) {
         style={{ flex: 1 }}
       >
         <ImageBackground source={post.image} style={styles.image}>
-          <ThemedText style={styles.title} type="hero">
+          <ThemedText style={styles.title} type="heroBlog">
             {post.title}
           </ThemedText>
           <ThemedText style={styles.date} type="subtext">
             {post.date}
+          </ThemedText>
+          <ThemedText style={styles.description} type="subtitle">
+            {post.description}
           </ThemedText>
         </ImageBackground>
       </Pressable>
@@ -53,17 +56,23 @@ const styles = StyleSheet.create({
   },
   title: {
     position: "absolute",
-    bottom: -70,
+    bottom: -40,
     right: -10,
-    fontSize: 60,
     textAlign: "right",
-    fontWeight: "bold",
-    color: "#FFFFFF",
+    lineHeight: 65,
     marginBottom: 8,
   },
   date: {
+    position: "absolute",
+    top: -25,
     fontSize: 14,
-    color: "#FFFFFF",
-    opacity: 0.8,
+    color: "#fff",
+    marginBottom: 8,
+  },
+  description: {
+    position: "absolute",
+    bottom: -100,
+    color: "#fff",
+    marginBottom: 8,
   },
 });
