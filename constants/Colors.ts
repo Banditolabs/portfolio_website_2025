@@ -18,6 +18,7 @@ export const Colors = {
         tint: tintColorDark,
         icon: '#ECEDEE',
         tabIconDefault: '#ECEDEE',
+        accentBlue: '#94a3b8',
         tabIconSelected: tintColorDark
     },
 };

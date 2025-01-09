@@ -9,6 +9,8 @@ import { NameAndTitle } from "@/src/components/homepage/NameAndTitle";
 import { Icons } from "@/src/components/homepage/Icons";
 import ProfileImage from "@/src/components/homepage/ProfileImage";
 import { useIsMobile } from "@/src/hooks/useIsMobile";
+import { Link } from "expo-router";
+import { ThemedText } from "@/src/components/ThemedText";
 
 export default function Index() {
   const isMobile = useIsMobile();
@@ -29,16 +31,23 @@ export default function Index() {
                 ]}
               >
                 <NameAndTitle />
-                <View style={[{ flexDirection: "column", gap: 20 }]}>
-                  <View
-                    style={[
-                      { flexDirection: "column", gap: 20 },
-                      isMobile && { justifyContent: "center" },
-                    ]}
-                  >
-                    <ProfileImage />
+                <View>
+                  <View style={[{ flexDirection: "column", gap: 20 }]}>
+                    <View
+                      style={[
+                        { flexDirection: "column", gap: 20 },
+                        isMobile && { justifyContent: "center" },
+                      ]}
+                    >
+                      <ProfileImage />
+                    </View>
+                    <Icons />
                   </View>
-                  <Icons />
+                  <View>
+                    <Link href="/blog">
+                      <ThemedText type={"link"}>[ Blog ]</ThemedText>
+                    </Link>
+                  </View>
                 </View>
               </ThemedView>
             </View>

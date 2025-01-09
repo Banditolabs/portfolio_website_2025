@@ -16,7 +16,7 @@ export function BlogHeroCard({ post }: BlogHeroCardProps) {
             {post.title}
           </ThemedText>
           <ThemedText style={styles.date} type="subtext">
-            {post.date}
+            {`Star Date:  ${post.date}`}
           </ThemedText>
           <ThemedText style={styles.description} type="subtitle">
             {post.description}

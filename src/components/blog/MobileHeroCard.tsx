@@ -3,7 +3,7 @@ import { ThemedView } from "@/src/components/ThemedView";
 import { ThemedText } from "@/src/components/ThemedText";
 import { LoadedBlogPost } from "@/src/types/blog";
 import { router } from "expo-router";
-
+import { Colors } from "@/constants/Colors";
 interface MobileHeroCardProps {
   post: LoadedBlogPost;
 }
@@ -35,7 +35,7 @@ export function MobileHeroCard({ post }: MobileHeroCardProps) {
 const styles = StyleSheet.create({
   card: {
     width: "100%",
-    height: 400, // Adjust this height as needed
+    height: 375, // Adjust this height as needed
     marginBottom: 20,
   },
   image: {
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: -25,
     fontSize: 14,
-    color: "#fff",
+    color: Colors.dark.accentBlue,
     marginBottom: 8,
   },
   description: {

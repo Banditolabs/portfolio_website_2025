@@ -71,12 +71,15 @@ export default function Blog() {
                 [ Coder's Log ]
               </ThemedText>
               <View style={styles.headerContainer}>
-                <ThemedText type="subtitle" style={styles.subheading}>
-                  Thank you for visiting my blog
+                <ThemedText
+                  type="subtitle"
+                  style={isMobile ? styles.mobileSubheading : styles.subheading}
+                >
+                  Make It So
                 </ThemedText>
                 <View style={styles.headerOptions}>
                   <Link href="/">
-                    <ThemedText>Home</ThemedText>
+                    <ThemedText type={"link"}>Home</ThemedText>
                   </Link>
                 </View>
               </View>
@@ -172,10 +175,16 @@ const styles = StyleSheet.create({
   },
   headingMobile: {
     marginBottom: 10,
+    fontSize: 30,
   },
   subheading: {
     borderBottomColor: "#ccc",
     marginBottom: 10,
+    marginLeft: 20,
+  },
+  mobileSubheading: {
+    fontSize: 15,
+    marginLeft: 20,
   },
   blogHero: {
     marginBottom: 20,
