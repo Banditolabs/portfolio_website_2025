@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   date: {
     fontSize: 14,
     color: "#666",
-    marginBottom: 16,
+    paddingTop: 10,
   },
   tags: {
     flexDirection: "row",
@@ -126,5 +126,6 @@ const markdownStyles = {
   paragraph: {
     marginBottom: 16,
     lineHeight: 24,
+    fontFamily: "Pontano-Sans",
   },
 };
