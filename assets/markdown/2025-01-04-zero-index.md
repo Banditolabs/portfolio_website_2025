@@ -3,11 +3,11 @@
 This is my first time writing for the internet.
 My goal for this blog is to serve as a place to reflect, share what I'm working on and document what I've learned.
 
-I don't know where this will go, but I know that out of all the work I've done in my life, coding is what feels like home. This blog will be a place for me to share that with you, dear reader. My goal is to share technical findings and insights from my work, sprinkled with my personality.
+I don't know where this will go, but I know that out of all the work I've done in my life, coding is what feels like home. My goal is to share technical findings and insights from my work, sprinkled with my personality.
 
 Recently, I was laid off. It’s been… well, a disaster. But silver linings are where angels live, right? One silver lining is this blog. I’m coding up a project that makes me happy and turning this challenging period into an opportunity for growth.
 
-In my previous position, I worked hard every day—the kind of work that felt like a tough workout or a boxing match. It was exhausting but rewarding, and I’m proud of everything I accomplished. Reflecting on where I was in November 2022, I realize how much I’ve grown as a software engineer, both in skill and resilience.
+In my previous position, I worked hard every day—the kind of work that felt like a tough workout or a boxing match. It was exhausting but rewarding, and I’m proud of everything I accomplished. Reflecting on when I started as a software engineer in November 2022, I realize how much I’ve grown, both in skill and resilience.
 [_Insert image of "Boxer at Rest"._](https://www.google.com/search?sca_esv=78b8a75bbef2a9ff&sxsrf=ADLYWIK7cRfHFpXpRPzhstCQvlbSCJLmZw:1736402681233&q=boxer+at+rest&udm=2&fbs=AEQNm0Aa4sjWe7Rqy32pFwRj0UkWd8nbOJfsBGGB5IQQO6L3J03RPjGV0MznOJ6Likin94pT_oR1DTSof42bOBxoTNxGeB1pS5_mub79WlyOO98XhEgJ5ByfFkeFUd9hlGBCmUZgrzLESyrkqGBL7osK5ZH3-0drzcH2VIMmwLRButbs-cMHhV8leQ--AYHsqw2WSrddKuHyCX6iowNOKZDTcJOO0G_14g&sa=X&ved=2ahUKEwiK24GI_OeKAxVpGDQIHSXUFekQtKgLegQICBAB&biw=2376&bih=1318&dpr=1)
 
 ## Where I'm at now
@@ -21,7 +21,7 @@ I’ve got two solid years of experience with Ruby on Rails, React, JavaScript, 
 
 - [Rands Slack](https://randsinrepose.com/welcome-to-rands-leadership-slack/)
   - This community is FULL of job seekers and hiring managers. It's a great place for support, advice and just to be around people who are going through the same thing.
-    There's even a job posting channel! But you know, _not a staff or senior engineer just yet..._
+    There's even a job posting channel! But you know... I'm _not a staff or senior engineer quite yet..._
 - [Otta](https://app.welcometothejungle.com/)
   - This is a great job board for finding jobs that are actually a good fit. I'd say the matching algorithm is above average. Probably my favorite so far.
 - [Never Search Alone](https://www.phyl.org/)
@@ -39,7 +39,7 @@ I’ve got two solid years of experience with Ruby on Rails, React, JavaScript, 
 
 ### My Daily Routine:
 
-I've found it very helpful mentally and productive keep a routine. I'm proud to say I have yet to spend a weekday lying on the couch with Cheeto fingers.
+I've found it very productive and helpful mentally to keep a routine. I'm proud to say I have yet to spend a weekday lying on the couch with Cheeto fingers.
 
 - 9:00am - 10:00am: Handle any LinkedIn messages, respond to emails, and do any other admin work.
 - 10:00am - 11:00am: Break for breakfast, time with my wife and take the dog for a wee.

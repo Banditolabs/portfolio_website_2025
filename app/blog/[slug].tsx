@@ -116,12 +116,14 @@ const markdownStyles = {
     fontSize: 24,
     fontWeight: "bold",
     color: Colors.dark.accentBlue,
+    fontFamily: "Stint-Ultra-Expanded",
   },
   heading3: {
     marginTop: 24,
     marginBottom: 12,
     fontSize: 18,
     fontWeight: "bold",
+    fontFamily: "Stint-Ultra-Expanded",
   },
   paragraph: {
     marginBottom: 16,
