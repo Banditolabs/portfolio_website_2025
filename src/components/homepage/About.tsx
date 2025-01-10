@@ -1,6 +1,7 @@
 import { View, StyleSheet } from "react-native";
 import { ThemedText } from "@/src/components/ThemedText";
 import { about } from "@/constants/About";
+import { Colors } from "@/constants/Colors";
 
 export function About() {
   return (
@@ -9,11 +10,11 @@ export function About() {
         About Me
       </ThemedText>
       <ThemedText style={[styles.aboutItem]}>{about.p1}</ThemedText>
-      <ThemedText style={[styles.aboutItem, { color: "#94a3b8" }]}>
+      <ThemedText style={[styles.aboutItem, { color: Colors.dark.accentBlue }]}>
         {about.p2}
       </ThemedText>
       <ThemedText style={[styles.aboutItem]}>{about.p3}</ThemedText>
-      <ThemedText style={[styles.aboutItem, { color: "#94a3b8" }]}>
+      <ThemedText style={[styles.aboutItem, { color: Colors.dark.accentBlue }]}>
         {about.p4}
       </ThemedText>
     </View>

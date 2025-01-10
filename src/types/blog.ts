@@ -1,3 +1,5 @@
+import { ImageSourcePropType } from "react-native";
+
 export interface BlogPost {
   id: string;
   title: string;
@@ -5,6 +7,7 @@ export interface BlogPost {
   description: string;
   slug: string;
   tags: string[];
+  image: ImageSourcePropType;
   contentPath: string;
 }
 

@@ -4,7 +4,7 @@ import { ThemedText } from "@/src/components/ThemedText";
 export function NameAndTitle() {
   return (
     <View style={[styles.nameContainer]}>
-      <ThemedText type="title" style={[styles.nameItem]}>
+      <ThemedText type="hero" style={[styles.nameItem]}>
         Joshua Goss
       </ThemedText>
       <ThemedText type="subtitle" style={[styles.nameItem]}>

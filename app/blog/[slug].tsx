@@ -1,12 +1,13 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, ScrollView } from "react-native";
 import { ThemedView } from "@/src/components/ThemedView";
 import { ThemedText } from "@/src/components/ThemedText";
 import { useEffect, useState } from "react";
 import { blogPosts } from "@/src/data/blogPosts";
 import { loadMarkdownFile } from "@/src/utils/markdownLoader";
 import type { LoadedBlogPost } from "@/src/types/blog";
-import { useLocalSearchParams } from "expo-router";
+import { useLocalSearchParams, Link } from "expo-router";
 import Markdown from "react-native-markdown-display";
+import { Colors } from "@/constants/Colors";
 
 export default function BlogPostPage() {
   const { slug } = useLocalSearchParams();
@@ -25,6 +26,7 @@ export default function BlogPostPage() {
         description: postData.description,
         slug: postData.slug,
         tags: postData.tags,
+        image: postData.image,
         content: content || "",
       });
     };
@@ -41,22 +43,26 @@ export default function BlogPostPage() {
   }
 
   return (
-    <ThemedView style={styles.container}>
-      <View style={styles.content}>
-        <ThemedText style={styles.title}>{post.title}</ThemedText>
-        <ThemedText style={styles.date}>{post.date}</ThemedText>
-        <View style={styles.tags}>
-          {post.tags.map((tag, index) => (
-            <ThemedText key={`${tag}-${index}`} style={styles.tag}>
-              #{tag}
-            </ThemedText>
-          ))}
+    <ScrollView>
+      <ThemedView style={styles.container}>
+        <View style={styles.content}>
+          <ThemedText style={styles.title}>{post.title}</ThemedText>
+          <View style={styles.headingContainer}>
+            <ThemedText
+              style={styles.date}
+            >{`Star Date:  ${post.date}`}</ThemedText>
+            <View>
+              <Link href="/blog">
+                <ThemedText type="link">[ Blog ] </ThemedText>
+              </Link>
+            </View>
+          </View>
+          <ThemedText>
+            <Markdown style={markdownStyles}>{post.content}</Markdown>
+          </ThemedText>
         </View>
-        <ThemedText>
-          <Markdown>{post.content}</Markdown>
-        </ThemedText>
-      </View>
-    </ThemedView>
+      </ThemedView>
+    </ScrollView>
   );
 }
 
@@ -65,8 +71,14 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
   },
+  headingContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+  },
   content: {
-    maxWidth: 1280,
+    maxWidth: 721,
     width: "100%",
     padding: 20,
   },
@@ -91,3 +103,28 @@ const styles = StyleSheet.create({
     color: "#0066cc",
   },
 });
+
+const markdownStyles = {
+  heading1: {
+    marginTop: 40,
+    marginBottom: 20,
+    fontSize: 32,
+    fontWeight: "bold",
+  },
+  heading2: {
+    marginTop: 32,
+    fontSize: 24,
+    fontWeight: "bold",
+    color: Colors.dark.accentBlue,
+  },
+  heading3: {
+    marginTop: 24,
+    marginBottom: 12,
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+  paragraph: {
+    marginBottom: 16,
+    lineHeight: 24,
+  },
+};

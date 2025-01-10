@@ -9,6 +9,8 @@ export default function RootLayout() {
   const [loaded, error] = useFonts({
     "Stint-Ultra-Expanded": require("@/assets/fonts/StintUltraExpanded-Regular.ttf"),
     "Pontano-Sans": require("@/assets/fonts/PontanoSans-VariableFont_wght.ttf"),
+    "LilitaOne-Regular": require("@/assets/fonts/LilitaOne-Regular.ttf"),
+    "Ultra-Regular": require("@/assets/fonts/Ultra-Regular.ttf"),
   });
   useEffect(() => {
     if (loaded || error) {

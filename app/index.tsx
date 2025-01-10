@@ -1,14 +1,15 @@
-import { View, StyleSheet, useWindowDimensions } from "react-native";
-import { useState, useEffect } from "react";
+import { View, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView } from "react-native-gesture-handler";
 import { ThemedView } from "@/src/components/ThemedView";
-import { Experience } from "@/src/components/Experience";
-import { About } from "@/src/components/About";
-import { NameAndTitle } from "@/src/components/NameAndTitle";
-import { Icons } from "@/src/components/Icons";
-import ProfileImage from "@/src/components/ProfileImage";
+import { Experience } from "@/src/components/homepage/Experience";
+import { About } from "@/src/components/homepage/About";
+import { NameAndTitle } from "@/src/components/homepage/NameAndTitle";
+import { Icons } from "@/src/components/homepage/Icons";
+import ProfileImage from "@/src/components/homepage/ProfileImage";
 import { useIsMobile } from "@/src/hooks/useIsMobile";
+import { Link } from "expo-router";
+import { ThemedText } from "@/src/components/ThemedText";
 
 export default function Index() {
   const isMobile = useIsMobile();
@@ -29,16 +30,23 @@ export default function Index() {
                 ]}
               >
                 <NameAndTitle />
-                <View style={[{ flexDirection: "column", gap: 20 }]}>
-                  <View
-                    style={[
-                      { flexDirection: "column", gap: 20 },
-                      isMobile && { justifyContent: "center" },
-                    ]}
-                  >
-                    <ProfileImage />
+                <View>
+                  <View style={[{ flexDirection: "column", gap: 20 }]}>
+                    <View
+                      style={[
+                        { flexDirection: "column", gap: 20 },
+                        isMobile && { justifyContent: "center" },
+                      ]}
+                    >
+                      <ProfileImage />
+                    </View>
+                    <Icons />
                   </View>
-                  <Icons />
+                  <View>
+                    <Link href="/blog">
+                      <ThemedText type={"link"}>[ Blog ]</ThemedText>
+                    </Link>
+                  </View>
                 </View>
               </ThemedView>
             </View>
