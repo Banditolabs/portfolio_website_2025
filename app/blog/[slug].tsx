@@ -1,4 +1,4 @@
-import { View, StyleSheet, ScrollView, Text } from "react-native";
+import { View, StyleSheet, ScrollView } from "react-native";
 import { ThemedView } from "@/src/components/ThemedView";
 import { ThemedText } from "@/src/components/ThemedText";
 import { useEffect, useState } from "react";
@@ -8,6 +8,7 @@ import type { LoadedBlogPost } from "@/src/types/blog";
 import { useLocalSearchParams } from "expo-router";
 import Markdown from "react-native-markdown-display";
 import { Colors } from "@/constants/Colors";
+
 export default function BlogPostPage() {
   const { slug } = useLocalSearchParams();
   const [post, setPost] = useState<LoadedBlogPost | null>(null);

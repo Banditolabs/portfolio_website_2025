@@ -1,10 +1,4 @@
-import {
-  View,
-  StyleSheet,
-  Pressable,
-  ScrollView,
-  SafeAreaView,
-} from "react-native";
+import { View, StyleSheet, Pressable, ScrollView } from "react-native";
 import { ThemedView } from "@/src/components/ThemedView";
 import { ThemedText } from "@/src/components/ThemedText";
 import { useState, useEffect } from "react";

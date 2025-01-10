@@ -1,5 +1,4 @@
-import { View, StyleSheet, useWindowDimensions } from "react-native";
-import { useState, useEffect } from "react";
+import { View, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView } from "react-native-gesture-handler";
 import { ThemedView } from "@/src/components/ThemedView";
