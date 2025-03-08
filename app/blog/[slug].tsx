@@ -130,4 +130,8 @@ const markdownStyles = {
     lineHeight: 24,
     fontFamily: "Pontano-Sans",
   },
+  fence: {
+    //bug in the library, this styles the code block
+    backgroundColor: "#000000",
+  },
 };

@@ -4,11 +4,14 @@ import { ThemedText } from "@/src/components/ThemedText";
 import { LoadedBlogPost } from "@/src/types/blog";
 import { router } from "expo-router";
 import { Colors } from "@/constants/Colors";
+import { useIsMobile } from "@/src/hooks/useIsMobile";
 interface MobileHeroCardProps {
   post: LoadedBlogPost;
 }
 
 export function MobileHeroCard({ post }: MobileHeroCardProps) {
+  const isMobile = useIsMobile();
+
   return (
     <View style={styles.card}>
       <Pressable
@@ -17,7 +20,10 @@ export function MobileHeroCard({ post }: MobileHeroCardProps) {
         style={{ flex: 1 }}
       >
         <ImageBackground source={post.image} style={styles.image}>
-          <ThemedText style={styles.title} type="heroBlog">
+          <ThemedText
+            style={styles.title}
+            type={isMobile ? "mobileHeroBlog" : "heroBlog"}
+          >
             {post.title}
           </ThemedText>
           <ThemedText style={styles.date} type="subtext">

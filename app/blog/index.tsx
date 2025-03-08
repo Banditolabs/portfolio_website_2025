@@ -40,9 +40,7 @@ export default function Blog() {
     loadPosts();
   }, []);
 
-  useEffect(() => {
-    console.log(newestPost);
-  }, [newestPost]);
+  useEffect(() => {}, [newestPost]);
 
   return (
     <ThemedView
@@ -169,7 +167,7 @@ const styles = StyleSheet.create({
   },
   headingMobile: {
     marginBottom: 10,
-    fontSize: 30,
+    fontSize: 20,
   },
   subheading: {
     borderBottomColor: "#ccc",
