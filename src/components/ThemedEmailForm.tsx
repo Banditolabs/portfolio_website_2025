@@ -1,6 +1,6 @@
 import React from "react";
 import { View, TextInput, StyleSheet } from "react-native";
-import { useThemeColor } from "@/hooks/useThemeColor";
+import { useThemeColor } from "@/src/hooks/useThemeColor";
 
 export type ThemedEmailFormProps = {
   lightColor?: string;

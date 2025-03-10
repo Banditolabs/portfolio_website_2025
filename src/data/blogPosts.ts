@@ -5,7 +5,7 @@ export const blogPosts: BlogPost[] = [
   {
     id: '2',
     title: 'Developing For My Community',
-    date: '2025.02.02',
+    date: '2025.03.10',
     description: 'Giving a great group an online presence',
     slug: 'developing-for-my-community',
     tags: ['techical'],
